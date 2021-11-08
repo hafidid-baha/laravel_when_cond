@@ -61,10 +61,10 @@ Route::post('/', function (Request $request) {
     $validator = Validator::make(
         $request->all(),
         [
-            'name' => ['string'],
-            'email' => ['string', 'email'],
-            'gender' => ['string', 'in:male,female'],
-            'age' => ['integer', 'between:10,100'],
+            'name' => ['nullable', 'string'],
+            'email' => ['nullable', 'string', 'email'],
+            'gender' => ['nullable', 'string', 'in:male,female'],
+            'age' => ['nullable', 'integer', 'between:10,100'],
         ]
     );
     if ($validator->fails()) {
